@@ -39,6 +39,9 @@ int main(int argc, char* argv[]) {
 		strncpy(sysCall+sysCallOffset, argv[i], strlen(argv[i]));
 		sysCallOffset += strlen(argv[i]);
 	}
+	
+	// Terminate the string
+	strncpy(sysCall+sysCallOffset, "\0", 1);
 
 	// And run!
 	return system(sysCall);	
