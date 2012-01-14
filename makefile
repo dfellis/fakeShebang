@@ -1,9 +1,10 @@
-OS = $(shell echo %OS%)
-ifeq ($(OS),%OS%)
-	CC = gcc
-else
+ifdef OS
 	CC = cl
+	OUT = /Fetest_script
+else
+	CC = gcc
+	OUT = -o test_script
 endif
 
 all:
-	$(CC) fakeShebang.c -o test_script
+	$(CC) fakeShebang.c $(OUT)
