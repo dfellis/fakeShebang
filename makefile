@@ -1,2 +1,9 @@
+OS = $(shell echo %OS%)
+ifeq ($(OS),%OS%)
+	CC = gcc
+else
+	CC = cl
+endif
+
 all:
-	gcc fakeShebang.c -o test_script
+	$(CC) fakeShebang.c -o test_script
